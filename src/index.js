@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
+import { Elements, StripeProvider } from 'react-stripe-elements';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
@@ -15,7 +16,11 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <App />
+      <StripeProvider apiKey="pk_test_TYooMQauvdEDq54NiTphI7jx">
+        <Elements>
+          <App />
+        </Elements>
+      </StripeProvider>
     </BrowserRouter>
   </Provider>,
   document.getElementById('root')
